@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudinary Image Uploader | ML Club NIT Silchar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cal+Sans&family=Dancing+Script:wght@400..700&family=Honk:SHLN@17&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto+Slab:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background decorative elements -->
+    <i class="fas fa-cloud bg-element cloud-1"></i>
+    <i class="fas fa-cloud bg-element cloud-2"></i>
+    <i class="fas fa-image bg-element image-icon"></i>
+    <i class="fas fa-upload bg-element upload-icon-bg"></i>
+    <div class="bg-element circle-1"></div>
+    <div class="bg-element circle-2"></div>
+    <div class="bg-element triangle"></div>
+    <div class="wave"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-nav">
+            <img src="photo/linkfy.png" alt="Cloud Upload Logo">
+            <span class="logo-text">Cloud Image Uploader</span>
+        </div>
+        <div class="nav-links">
+            <a href="#upload">Upload</a>
+            <a href="#guide">How To Use</a>
+            <a href="#features">Features</a>
+        </div>
+    </nav>
+
+    <div class="container" id="upload">
+        <div class="header">
+            <h1>Cloud Image Uploader</h1>
+            <div class="description">
+                <p>100% Free and Automatic</p>
+                Drag & drop your images or browse files to upload them to the cloud
+            </div>
+        </div>
+        
+        <div class="upload-container">
+            <div class="drop-area" id="dropArea">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <h3>Select image files</h3>
+                <p>PNG, JPG, GIF up to 10MB</p>
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <label for="fileInput" class="browse-btn">Browse Files</label>
+            </div>
+            
+            <div class="preview-container" id="previewContainer">
+                <div class="progress-container hidden" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="loader-container hidden" id="loaderContainer">
+                    <div class="loader"></div>
+                    <p class="loading-text">Uploading your image...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="result-wrapper hidden" id="resultWrapper">
+            <div class="image-preview-side">
+                <img id="imagePreview" class="hidden">
+            </div>
+            <div class="result-container" id="resultContainer">
+                <h3><i class="fas fa-check-circle"></i> Upload Successful</h3>
+                <div class="url-container">
+                    <input type="text" id="imageUrl" readonly>
+                    <button id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <div class="image-info">
+                    <div class="info-item">
+                        <span class="info-label">Dimensions</span>
+                        <span class="info-value" id="dimensions">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Size</span>
+                        <span class="info-value" id="fileSize">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Format</span>
+                        <span class="info-value" id="fileFormat">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Uploaded</span>
+                        <span class="info-value" id="uploadTime">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="error-message hidden" id="errorMessage">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="errorText"></span>
+        </div>
+
+        <!-- How To Use Section -->
+        <div class="guide-section" id="guide">
+            <h2>How To Use Our Image Uploader</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Select Your Image</h3>
+                        <p>Click the "Browse Files" button or simply drag and drop your image file into the upload area. We support JPG, PNG, and GIF formats up to 10MB in size.</p>
+                    </div>
+                </div>
+                
+                <div class="step step-reverse">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Wait for Upload</h3>
+                        <p>Our system will automatically upload your image to the cloud. You can see the progress in real-time. Don't worry - your files are secure during transfer.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Your Link</h3>
+                        <p>Once uploaded, you'll receive a direct link to your image. Copy it with one click and use it anywhere you need - websites, forums, social media, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features-section" id="features">
+            <h2>Why Choose Our Image Uploader</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Our optimized servers ensure your images upload in seconds, no matter where you are in the world.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>No Limits</h3>
+                    <p>Upload as many images as you need - we don't impose any daily or monthly upload limits.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices - smartphones, tablets, and desktop computers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Cloud Image Uploader by Kallul Gogoi | <a href="#" id="privacyLink">Privacy Policy</a> | <a href="#" id="termsLink">Terms of Service</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
